@@ -3,7 +3,7 @@
 Making it happen:
 	1. Add code to serve resources (see example below)
 	2. Compile your executable
-	3. Run the `nrsc` script from https://bitbucket.org/tebeka/nrsc/src
+	3. Run the `gotogether` script from https://github.com/carbocation/gotogether/src
 	4. Deploy
 
 Example code:
@@ -15,7 +15,7 @@ Example code:
 		"net/http"
 		"os"
 
-		"bitbucket.org/tebeka/nrsc"
+		"github.com/carbocation/gotogether"
 	)
 
 	type params struct {
@@ -23,7 +23,7 @@ Example code:
 	}
 
 	func indexHandler(w http.ResponseWriter, req *http.Request) {
-		t, err := nrsc.LoadTemplates(nil, "t.html")
+		t, err := gotogether.LoadTemplates(nil, "t.html")
 		if err != nil {
 			http.NotFound(w, req)
 		}
@@ -33,7 +33,7 @@ Example code:
 	}
 
 	func main() {
-		nrsc.Handle("/static/")
+		gotogether.Handle("/static/")
 		http.HandleFunc("/", indexHandler)
 		if err := http.ListenAndServe(":8080", nil); err != nil {
 			fmt.Fprintf(os.Stderr, "error: %s\n", err)
@@ -41,4 +41,4 @@ Example code:
 		}
 	}
 */
-package nrsc
+package gotogether

@@ -1,3 +1,9 @@
+2013-05-02 version 0.3.2
+    * Add support for multiple root-level directories, enabling partitioning
+        of public and private assets.
+    * Fork from tebeka's bitbucket hg repository to a github repository
+    * Rename to something that I can recall more easily 
+
 2013-01-04 version 0.3.1
     * Call Initialize in LoadTemplates as well (thanks Vincent Rischmann)
 

@@ -1,4 +1,4 @@
-package nrsc
+package gotogether
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	root = "/tmp/nrsc-test"
+	root = "/tmp/gotogether-test"
 	port = 9888
 )
 
@@ -86,7 +86,7 @@ func get(path string) (*http.Response, error) {
 }
 
 func startServer(t *testing.T) *exec.Cmd {
-	cmd := exec.Command(fmt.Sprintf("%s/nrsc-test", root))
+	cmd := exec.Command(fmt.Sprintf("%s/gotogether-test", root))
 	// Ignore errors, test will fail anyway if server not running
 	cmd.Start()
 
@@ -135,7 +135,7 @@ func init() {
 		panic(err)
 	}
 
-	cmd = exec.Command(path("nrsc"), "nrsc-test", path("test-resources"))
+	cmd = exec.Command(path("gotogether"), "gotogether-test", path("test-resources"))
 	if err := cmd.Run(); err != nil {
 		fmt.Printf("error packing: %s\n", err)
 		panic(err)
@@ -185,7 +185,7 @@ import (
 	"net/http"
 	"os"
 
-	"nrsc"
+	"gotogether"
 )
 
 type params struct {
@@ -193,7 +193,7 @@ type params struct {
 }
 
 func indexHandler(w http.ResponseWriter, req *http.Request) {
-	t, err := nrsc.LoadTemplates(nil, "t.html")
+	t, err := gotogether.LoadTemplates(nil, "t.html")
 	if err != nil {
 		http.NotFound(w, req)
 	}
@@ -203,7 +203,7 @@ func indexHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	nrsc.Handle("/static/")
+	gotogether.Handle("/static/")
 	http.HandleFunc("/", indexHandler)
 	if err := http.ListenAndServe(":%d", nil); err != nil {
 		fmt.Fprintf(os.Stderr, "error: %%s\n", err)

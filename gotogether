@@ -8,7 +8,7 @@ case "$1" in
         echo "usage: $(basename $0) EXECTABLE RESOURCE_DIR [ZIP OPTIONS]";
         exit;;
     --version )
-        echo "nrsc version 0.3.1"; exit;;
+        echo "gotogether version 0.3.2"; exit;;
 esac
 
 if [ $# -lt 2 ]; then
@@ -37,7 +37,7 @@ done
 # Exit on 1'st error
 set -e
 
-tmp="/tmp/nrsc-$(date +%s).zip"
+tmp="/tmp/gotogether-$(date +%s).zip"
 trap "rm -f ${tmp}" EXIT
 
 # Create zip file
