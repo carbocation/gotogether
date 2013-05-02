@@ -5,12 +5,13 @@
 deploy a single executable as a web server with all the CSS, image files, JS ...
 included.
 
+This is a fork of tebeka's nrsc: http://bitbucket.org/tebeka/nrsc
 
 Installing
 ==========
 ::
 
-    go get bitbucket.org/carbocation/nrsc
+    go get github.com/carbocation/nrsc
 
 Also grab the `nrsc` script from here_
 
@@ -72,7 +73,7 @@ Example Code
             "net/http"
             "os"
 
-            "bitbucket.org/carbocation/nrsc"
+            "github.com/carbocation/nrsc"
     )
 
     func indexHandler(w http.ResponseWriter, req *http.Request) {
@@ -90,10 +91,10 @@ Example Code
 
 Contact
 =======
-https://bitbucket.org/carbocation/nrsc
+https://github.com/carbocation/nrsc
     
 License
 =======
 MIT (see `LICENSE.txt`_)
 
-.. _`LICENSE.txt`: https://bitbucket.org/carbocation/nrsc/src/tip/LICENSE.txt
+.. _`LICENSE.txt`: https://github.com/carbocation/nrsc/src/tip/LICENSE.txt
